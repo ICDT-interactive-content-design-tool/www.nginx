@@ -1,1 +1,1 @@
-# nginx.www
+# www.nginx
