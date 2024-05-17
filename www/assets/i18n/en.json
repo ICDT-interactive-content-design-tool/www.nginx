@@ -188,7 +188,7 @@
 	"Input": "Input",
 	"InstructionsForDataInputArea": "Instructions for data input area",
 	"Interactive": "Interactive",
-	"Introduce": "Introduce",
+	"Introduce": "Introduction",
 	"Iteration": "Looping",
 	"Iteration2": "2 times",
 	"Iteration5": "5 times",
@@ -478,5 +478,6 @@
 	"Zoom": "Zoom",
 	"ZoomIn": "Zoom in",
 	"ZoomOut": "Zoom out",
-	"ZoomTo": "Zoom to"
+	"ZoomTo": "Zoom to",
+	"Knowledge": "Knowledge"
 }
