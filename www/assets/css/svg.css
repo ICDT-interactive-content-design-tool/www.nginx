@@ -1,172 +1,142 @@
 svg foreignObject {
-    position: relative;
-    z-index: 999;
     line-height: 1.3;
     overflow: visible;
 }
 
-svg.editor {}
 
-svg.editor foreignObject::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1000;
-    /* background-color: rgba(0, 0, 0, 0.5); */
-}
+.k-webkit {
+    svg.editor foreignObject>[data-node="test"] {
+        position: relative;
+        border: 1px dashed #be5dba;
+    }
 
-/* svg.editor foreignObject>[xmlns] {
-    position: revert;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1000;
-    border: 1px dashed red
-} */
+    /* truefalse */
+    svg.editor foreignObject>[data-node="test"][data-type="truefalse"]::before,
+    svg.editor foreignObject>[data-node="test"][data-type="truefalse"]::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 28px;
+        height: 28px;
+    }
 
-svg.editor g[id^="icdt-"] foreignObject::after {
-    display: none;
-}
+    svg.editor foreignObject>[data-node="test"][data-type="truefalse"]::before {
+        border: 1px dashed #be5dba;
+        border-radius: 50%;
+    }
 
-svg.editor foreignObject>[data-node="test"] {
-    border: 1px dashed #be5dba;
-    position: relative;
-}
+    svg.editor foreignObject>[data-node="test"][data-type="truefalse"][data-correct="1"]::after {
+        content: '✔';
+        color: #be5dba;
+        font-size: 24px;
+        line-height: 28px;
+        vertical-align: middle;
+        text-align: center;
+    }
 
-/* truefalse */
-svg.editor foreignObject>[data-node="test"][data-type="truefalse"]::before,
-svg.editor foreignObject>[data-node="test"][data-type="truefalse"]::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 28px;
-    height: 28px;
-}
+    /* singlechoice */
+    svg.editor foreignObject>[data-node="test"][data-type="singlechoice"]::before,
+    svg.editor foreignObject>[data-node="test"][data-type="singlechoice"]::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 28px;
+        height: 28px;
+    }
 
-svg.editor foreignObject>[data-node="test"][data-type="truefalse"]::before {
-    border: 1px dashed #be5dba;
-    /* border-width: 0 1px 1px 0; */
-    border-radius: 50%;
-}
+    svg.editor foreignObject>[data-node="test"][data-type="singlechoice"]::before {
+        border: 1px dashed #be5dba;
+        border-radius: 50%;
+    }
 
-svg.editor foreignObject>[data-node="test"][data-type="truefalse"][data-correct="1"]::after {
-    content: '✔';
-    color: #be5dba;
-    font-size: 24px;
-    line-height: 28px;
-    vertical-align: middle;
-    text-align: center;
-}
+    svg.editor foreignObject>[data-node="test"][data-type="singlechoice"][data-correct="1"]::after {
+        content: '✔';
+        color: #be5dba;
+        font-size: 24px;
+        line-height: 28px;
+        vertical-align: middle;
+        text-align: center;
+    }
 
-/* singlechoice */
-svg.editor foreignObject>[data-node="test"][data-type="singlechoice"]::before,
-svg.editor foreignObject>[data-node="test"][data-type="singlechoice"]::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 28px;
-    height: 28px;
-}
+    /* multichoice */
+    svg.editor foreignObject>[data-node="test"][data-type="multichoice"]::before,
+    svg.editor foreignObject>[data-node="test"][data-type="multichoice"]::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 28px;
+        height: 28px;
+    }
 
-svg.editor foreignObject>[data-node="test"][data-type="singlechoice"]::before {
-    border: 1px dashed #be5dba;
-    /* border-width: 0 1px 1px 0; */
-    border-radius: 50%;
-}
+    svg.editor foreignObject>[data-node="test"][data-type="multichoice"]::before {
+        border: 1px dashed #be5dba;
+    }
 
-svg.editor foreignObject>[data-node="test"][data-type="singlechoice"][data-correct="1"]::after {
-    content: '✔';
-    color: #be5dba;
-    font-size: 24px;
-    line-height: 28px;
-    vertical-align: middle;
-    text-align: center;
-}
+    svg.editor foreignObject>[data-node="test"][data-type="multichoice"][data-correct="1"]::after {
+        content: '✔';
+        color: #be5dba;
+        font-size: 24px;
+        line-height: 28px;
+        vertical-align: middle;
+        text-align: center;
+    }
 
-/* multichoice */
-svg.editor foreignObject>[data-node="test"][data-type="multichoice"]::before,
-svg.editor foreignObject>[data-node="test"][data-type="multichoice"]::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 28px;
-    height: 28px;
-}
+    /* matching */
+    svg.editor foreignObject>[data-node="test"][data-type="matching"]::before,
+    svg.editor foreignObject>[data-node="test"][data-type="matching"]::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 28px;
+        height: 28px;
+    }
 
-svg.editor foreignObject>[data-node="test"][data-type="multichoice"]::before {
-    border: 1px dashed #be5dba;
-    /* border-width: 0 1px 1px 0; */
-}
+    svg.editor foreignObject>[data-node="test"][data-type="matching"]::before {
+        border: 1px dashed #be5dba;
+        border-width: 0 1px 1px 0;
+    }
 
-svg.editor foreignObject>[data-node="test"][data-type="multichoice"][data-correct="1"]::after {
-    content: '✔';
-    color: #be5dba;
-    font-size: 24px;
-    line-height: 28px;
-    vertical-align: middle;
-    text-align: center;
-}
+    svg.editor foreignObject>[data-node="test"][data-type="matching"][data-type2="matching-empty"]::before {
+        background-color: rgba(190, 93, 187, 0.2);
+    }
 
-/* matching */
-svg.editor foreignObject>[data-node="test"][data-type="matching"]::before,
-svg.editor foreignObject>[data-node="test"][data-type="matching"]::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 28px;
-    height: 28px;
-}
+    svg.editor foreignObject>[data-node="test"][data-type="matching"][data-key]::after {
+        content: attr(data-key);
+        color: #be5dba;
+        font-size: 24px;
+        line-height: 28px;
+        vertical-align: middle;
+        text-align: center;
+    }
 
-svg.editor foreignObject>[data-node="test"][data-type="matching"]::before {
-    border: 1px dashed #be5dba;
-    border-width: 0 1px 1px 0;
-}
+    svg.viewer .hide-on-viewer {
+        display: none;
+    }
 
-svg.editor foreignObject>[data-node="test"][data-type="matching"][data-type2="matching-empty"]::before {
-    background-color: rgba(190, 93, 187, 0.2);
-}
+    svg.viewer foreignObject.interactive-click::after,
+    svg.viewer foreignObject.variable-click::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+        cursor: pointer;
+    }
 
-svg.editor foreignObject>[data-node="test"][data-type="matching"][data-key]::after {
-    content: attr(data-key);
-    color: #be5dba;
-    font-size: 24px;
-    line-height: 28px;
-    vertical-align: middle;
-    text-align: center;
-}
-
-svg.viewer .hide-on-viewer {
-    display: none;
-}
-
-svg.viewer foreignObject.interactive-click::after,
-svg.viewer foreignObject.variable-click::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1000;
-    cursor: pointer;
-}
-
-svg.viewer foreignObject[data-role="draggable"]::after {
-    display: none;
+    svg.viewer foreignObject[data-role="draggable"]::after {
+        display: none;
+    }
 }
 
 svg.viewer foreignObject .ondrag-item {
