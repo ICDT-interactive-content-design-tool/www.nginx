@@ -3,7 +3,6 @@ svg foreignObject {
     overflow: visible;
 }
 
-
 .k-webkit {
     svg.editor foreignObject>[data-node="test"] {
         position: relative;
