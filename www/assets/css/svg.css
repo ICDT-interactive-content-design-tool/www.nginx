@@ -23,7 +23,7 @@ svg foreignObject {
     svg.editor g[id^="icdt-"] foreignObject::after {
         display: none;
     }
-    
+
     svg.editor foreignObject>[data-node="test"] {
         position: relative;
         border: 1px dashed #be5dba;

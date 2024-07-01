@@ -5,8 +5,6 @@ svg foreignObject {
     overflow: visible;
 }
 
-svg.editor {}
-
 svg.editor foreignObject::after {
     content: '';
     display: block;
@@ -16,18 +14,7 @@ svg.editor foreignObject::after {
     right: 0;
     bottom: 0;
     z-index: 1000;
-    /* background-color: rgba(0, 0, 0, 0.5); */
 }
-
-/* svg.editor foreignObject>[xmlns] {
-    position: revert;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1000;
-    border: 1px dashed red
-} */
 
 svg.editor g[id^="icdt-"] foreignObject::after {
     display: none;
