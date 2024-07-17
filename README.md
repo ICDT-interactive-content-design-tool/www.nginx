@@ -36,6 +36,8 @@ $ cd /var/www.tabca
 $ git pull
 
 # copy config to nginx
+$ cp /etc/nginx/nginx.conf /etc/nginx/nginx-original.conf
+$ cp /var/www.tabca/nginx/conf/nginx.conf /etc/nginx/nginx.conf
 $ cp /var/www.tabca/nginx/tabca.vn.conf /etc/nginx/conf.d/
 $ cp /var/www.tabca/nginx/www.tabca.vn.conf /etc/nginx/conf.d/
 
