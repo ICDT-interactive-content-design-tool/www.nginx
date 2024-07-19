@@ -36,7 +36,7 @@ svg foreignObject {
         display: block;
         position: absolute;
         top: 2px;
-        left: 2px;
+        right: 2px;
         width: 28px;
         height: 28px;
     }
@@ -62,7 +62,7 @@ svg foreignObject {
         display: block;
         position: absolute;
         top: 2px;
-        left: 2px;
+        right: 2px;
         width: 28px;
         height: 28px;
     }
@@ -88,7 +88,7 @@ svg foreignObject {
         display: block;
         position: absolute;
         top: 2px;
-        left: 2px;
+        right: 2px;
         width: 28px;
         height: 28px;
     }
@@ -113,14 +113,14 @@ svg foreignObject {
         display: block;
         position: absolute;
         top: 0;
-        left: 0;
+        right: 0;
         width: 28px;
         height: 28px;
     }
 
     svg.editor foreignObject>[data-node="test"][data-type="matching"]::before {
         border: 1px dashed #be5dba;
-        border-width: 0 1px 1px 0;
+        border-width: 0 0 1px 1px;
     }
 
     svg.editor foreignObject>[data-node="test"][data-type="matching"][data-type2="matching-empty"]::before {
@@ -176,15 +176,18 @@ svg foreignObject textarea {
 
 svg foreignObject h1,
 svg foreignObject h2,
-svg foreignObject h3,
+svg foreignObject h3 {
+    margin: 20px 0 10px;
+}
+
 svg foreignObject h4,
 svg foreignObject h5,
 svg foreignObject h6 {
-    margin: 0;
+    margin: 10px 0 10px;
 }
 
-svg foreignObject p:last-child {
-    margin: 0;
+svg foreignObject p {
+    margin: 0 0 10px;
 }
 
 svg .hide {
