@@ -1,4 +1,7 @@
 {
+	"Duplicate": "Duplicate",
+	"Directory": "Directory",
+	"BoardTemplate": "Sample",
 	"AddTo": "Add",
 	"UploadFileRecordOrUseMicrophone": "Upload your recording file or use the Microphone",
 	"Voice": "Voice",
