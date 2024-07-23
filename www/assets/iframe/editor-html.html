@@ -66,7 +66,11 @@
         }
 
         .k-i-removehtml:before {
-            content: "\e661";
+            content: "\e66d";
+        }
+
+        .k-i-magichtml:before {
+            content: "\e66e";
         }
 
         /*https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web*/
@@ -233,8 +237,8 @@
             var editor = $('#editor').kendoEditor({
                 value: EditorContent,
                 messages: {
-                    fontSizeInherit: "size",
-                    fontNameInherit: "font"
+                    fontSizeInherit: "16px",
+                    fontNameInherit: "Roboto"
                 },
                 pasteCleanup: {
                     all: false,
@@ -316,6 +320,7 @@
                     "deleteColumn",
 
                     //
+
                     "viewHtml",
 
                     {
@@ -367,9 +372,39 @@
                         }
                     },
 
+                    {
+                        name: "magichtml",
+                        tooltip: "Xóa các thẻ trống trong nội dung HTML",
+                        exec: function (e) {
+                            var editor = $(this).data("kendoEditor");
+
+                            let el = $('<div/>').html(editor.value());
+
+                            let checkTags = 'div,h1,h2,h3,h4,h5,h6,p,span,strong,b,i';
+
+                            //dọn rác
+                            let recursiveClearEmpty = (els) => {
+                                els?.forEach(el => {
+                                    let childs = el.querySelectorAll(`:scope > ${checkTags}`);
+                                    if (childs.length) {
+                                        recursiveClearEmpty(childs);
+                                    }
+
+                                    if (!el.querySelectorAll(':scope > *').length && el.textContent?.trim() == '') {
+                                        el.remove();
+                                    }
+                                });
+                            }
+                            recursiveClearEmpty(el.get(0)?.querySelectorAll(`:scope > ${checkTags}`));
+
+                            //
+                            editor.value(el.html());
+                        }
+                    },
+
                     "cleanFormatting",
 
-                    {
+                    /*{
                         name: "insert-math",
                         tooltip: "Chèn công thức toán học",
                         exec: function (e) {
@@ -393,8 +428,8 @@
                                 }
                             });
                         }
-                    },
-                    {
+                    },*/
+                    /*{
                         name: "insert-chemistry",
                         tooltip: "Chèn công thức hóa học",
                         exec: function (e) {
@@ -419,8 +454,9 @@
                                 }
                             });
                         }
-                    },
-                    {
+                    },*/
+
+                    /*{
                         name: "insert-readtext",
                         tooltip: "Chèn tự động đọc văn bản [text to speak]",
                         exec: function (e) {
@@ -442,7 +478,7 @@
                                 }
                             });
                         }
-                    },
+                    },*/
 
                     //"formatting",
                     // {
@@ -640,7 +676,7 @@
                     "foreColor",
                     "backColor"
                 ],
-                imageBrowser: {
+                /*imageBrowser: {
                     messages: {
                         dropFilesHere: "Kéo tập tin từ máy tính và thả vào đây!"
                     },
@@ -659,7 +695,7 @@
                         imageUrl: 'http://172.16.0.75/demo/sureboard/fileapi/FileBrowsers/Image?path={0}'
                     },
                     path: "/"
-                }
+                }*/
             }).data('kendoEditor');
 
             var cb = $("select.k-fontName").data("kendoComboBox");
