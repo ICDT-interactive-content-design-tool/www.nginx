@@ -1,4 +1,5 @@
 {
+	"CreateLectureWithAI": "Tạo bài giảng với AI",
 	"CleanEmptyHTML": "Xóa các thẻ trống trong nội dung HTML",
 	"Duplicate": "Tạo bản sao",
 	"Directory": "Thư mục",
@@ -125,7 +126,7 @@
 	"CreateImage": "Tạo ảnh",
 	"CreateImageWithAI": "Tạo hình ảnh bằng AI",
 	"CreateLecture": "Tạo bài giảng",
-	"CreateLectureWithAI": "Tạo nội dung bài giảng bằng công nghệ AI",
+	"CreateContentWithAI": "Tạo nội dung bài giảng bằng công nghệ AI",
 	"CreateNew": "Tạo mới",
 	"CreateSimilarImagesWithAI": "AI - Tạo ảnh tương đồng",
 	"CreateTest": "Tạo bài kiểm tra",

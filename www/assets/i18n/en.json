@@ -1,4 +1,5 @@
 {
+	"CreateLectureWithAI": "Create new with AI",
 	"CleanEmptyHTML": "Clean up empty html tags",
 	"Duplicate": "Duplicate",
 	"Directory": "Directory",
@@ -125,7 +126,7 @@
 	"CreateImage": "Create image",
 	"CreateImageWithAI": "Create image with AI",
 	"CreateLecture": "Create new",
-	"CreateLectureWithAI": "Create lecture content using AI technology",
+	"CreateContentWithAI": "Create lecture content using AI technology",
 	"CreateNew": "Create new",
 	"CreateSimilarImagesWithAI": "AI - Create similar images",
 	"CreateTest": "Create test",
