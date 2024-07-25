@@ -193,3 +193,28 @@ svg foreignObject p {
 svg .hide {
     display: none;
 }
+
+svg.editor foreignObject h1,
+svg.editor foreignObject h2,
+svg.editor foreignObject h3,
+svg.editor foreignObject h4,
+svg.editor foreignObject h5,
+svg.editor foreignObject h6,
+svg.editor foreignObject p {
+    border-left: 1px solid rgba(0, 0, 0, 0.15);
+
+    &::before,
+    &::after {
+        content: '';
+        display: block;
+        width: 10px;
+    }
+
+    &::before {
+        border-top: 1px solid rgba(0, 0, 0, 0.15);
+    }
+
+    &::after {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    }
+}

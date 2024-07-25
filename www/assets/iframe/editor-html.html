@@ -395,7 +395,40 @@
                                     }
                                 });
                             }
+
+                            //clear enter :last
+                            let recursiveClearBr = (el) => {
+
+                                let childs = el?.querySelectorAll(`:scope > div,h1,h2,h3,h4,h5,h6,p,strong,span`);
+                                if (childs?.length) {
+                                    let lastChild = childs[childs.length - 1];
+
+                                    //tìm thẻ br ở cuối tag tận cùng
+                                    if (lastChild.textContent?.trim() == '') {
+                                        let childs_2 = lastChild.querySelectorAll(':scope > *');
+                                        if (childs_2.length) {
+                                            let lastChild_2 = childs_2[childs_2.length - 1];
+
+                                            if (['br', 'BR'].includes(lastChild_2?.nodeName)) {
+                                                lastChild_2.remove();
+
+                                                //
+                                                recursiveClearBr(el);
+                                            }
+                                        }
+                                        //xóa tag cuối bị rỗng sau khi xóa br
+                                        else {
+                                            lastChild.remove();
+
+                                            //
+                                            recursiveClearBr(el);
+                                        }
+                                    }
+                                }
+                            }
+
                             recursiveClearEmpty(el.get(0)?.querySelectorAll(`:scope > ${checkTags}`));
+                            recursiveClearBr(el.get(0));
 
                             //
                             editor.value(el.html());
