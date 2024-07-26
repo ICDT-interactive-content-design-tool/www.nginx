@@ -390,7 +390,7 @@
                                         recursiveClearEmpty(childs);
                                     }
 
-                                    if (!el.querySelectorAll(':scope > *').length && el.textContent?.trim() == '') {
+                                    if (!el.querySelectorAll(':scope > *').length && el.textContent == '') {
                                         el.remove();
                                     }
                                 });
