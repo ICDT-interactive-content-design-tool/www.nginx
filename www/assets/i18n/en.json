@@ -1,4 +1,5 @@
 {
+	"AINow": "AI Now",
 	"CreateLectureWithAI": "Create new with AI",
 	"CleanEmptyHTML": "Clean up empty html tags",
 	"Duplicate": "Duplicate",
@@ -276,6 +277,11 @@
 	"Landing_Section12": "Learn Tabca now",
 	"Landing_Section12_2": "Visit your nearest store and purchase a Tabca account now",
 	"Landing_Section12_3": "For the latest english syllabus",
+	"Landing_Section13": "Breakthrough in Teaching",
+	"Landing_Section13_2": "Turn ideas into lectures super fast with AI - A smart solution for effective teaching.",
+	"Landing_Section13_3": "AI creates outstanding lectures in a snap!",
+	"Landing_Section13_4": "AI - Now",
+	"UpgradeTabcaProNow": "Upgrade Tabca Pro now",
 	"Language": "Language",
 	"Lecture": "Lecture",
 	"LectureInfo": "Lecture information",

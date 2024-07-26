@@ -1,4 +1,5 @@
 {
+	"AINow": "Với AI",
 	"CreateLectureWithAI": "Tạo bài giảng với AI",
 	"CleanEmptyHTML": "Xóa các thẻ trống trong nội dung HTML",
 	"Duplicate": "Tạo bản sao",
@@ -276,6 +277,11 @@
 	"Landing_Section12": "Học ngay Tabca",
 	"Landing_Section12_2": "Hoặc bạn có thể liên hệ hỗ trợ mua Tabca tại cửa hàng gần nhất",
 	"Landing_Section12_3": "Theo chương trình tiếng anh mới",
+	"Landing_Section13": "Đột phá trong giảng dạy",
+	"Landing_Section13_2": "Biến ý tưởng thành bài giảng siêu nhanh với AI - Giải pháp thông minh cho giảng dạy hiệu quả.",
+	"Landing_Section13_3": "Tạo bài giảng xuất sắc trong tích tắc!",
+	"Landing_Section13_4": "AI - Now",
+	"UpgradeTabcaProNow": "Nâng cấp Tabca Pro",
 	"Language": "Ngôn ngữ",
 	"Lecture": "Bài giảng",
 	"LectureInfo": "Thông tin bài giảng",
