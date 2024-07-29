@@ -687,8 +687,9 @@
                             { text: "Krub", value: "Krub" }
                         ]
                     },
+
                     //"fontSize",
-                    {
+                    /*{
                         name: "fontSize",
                         items: [
                             { text: "8px", value: "8px" },  //8x1
@@ -705,7 +706,19 @@
                             { text: "64px", value: "64px" },//8x8
                             { text: "72px", value: "72px" } //8x9
                         ]
+                    },*/
+
+                    {
+                        name: "fontSize",
+                        items: (function () {
+                            var res = [];
+                            for (var i = 8; i <= 108; i++) {
+                                res.push({ text: `${i}px`, value: `${i}px` });
+                            }
+                            return res;
+                        })()
                     },
+
                     "foreColor",
                     "backColor"
                 ],
