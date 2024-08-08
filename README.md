@@ -1,7 +1,8 @@
 # www.nginx
 
 # open PowerShell, đổi tên tệp .zip theo cấu trúc, rồi xả nén thư mục vào font
->  ls | Rename-Item -NewName { $_.Name -replace "_","" }
+> Ls | Rename-Item -NewName { $_.Name -replace "_","" }
+> Get-ChildItem -Recurse | Rename-Item -NewName { $_.Name -replace "_","" }
 
 # install nginx + certbot (ubuntu)
 $ sudo apt install nginx certbot python3-certbot-nginx -y
