@@ -233,12 +233,26 @@
             }
         }
 
-        $(window).on('load', function () {
+        $(window).on('load', async function () {
+            var fonts = ('queryLocalFonts' in window) ? await window.queryLocalFonts() : [];
+
+            fonts = fonts.reduce((previousValue, currentValue, currentIndex, array) => {
+                let temp = previousValue.find(f => f.family == currentValue.family);
+                if (temp) {
+                    //temp.child.push(Object.assign(currentValue, { text: currentValue.family, value: currentValue.family }));
+                }
+                else {
+                    previousValue.push(Object.assign(currentValue, { text: currentValue.family, value: currentValue.family, child: [] }));
+                }
+                return previousValue;
+            }, []);
+
+            //
             var editor = $('#editor').kendoEditor({
                 value: EditorContent,
                 messages: {
-                    fontSizeInherit: "16px",
-                    fontNameInherit: "Roboto"
+                    fontSizeInherit: "",
+                    fontNameInherit: ""
                 },
                 pasteCleanup: {
                     all: false,
@@ -294,6 +308,202 @@
                     "justifyCenter",
                     "justifyRight",
                     "justifyFull",
+
+                    //"fontName",
+                    {
+                        name: "fontName",
+                        items: fonts.length ? fonts : [
+                            //
+                            { text: "Segoe UI", value: "Segoe UI" },
+                            { text: "Segoe UI Light", value: "Segoe UI Light" },
+
+                            //
+                            //{ text: "Myriad Pro", value: "Myriad Pro" },
+                            { text: "Mali", value: "Mali" },
+                            { text: "Quicksand", value: "Quicksand" },
+                            { text: "MS-Mincho", value: "MS-Mincho" },
+                            { text: "Pangolin", value: "Pangolin" },
+
+                            //
+                            { text: "MS PGothic", value: "MS PGothic" },
+                            { text: "UD Digi Kyokasho NK-B", value: "UD Digi Kyokasho NK-B" },
+
+                            //
+                            { text: "Tahoma", value: "Tahoma" },
+                            { text: "Arial", value: "Arial" },
+                            { text: "Arial Black", value: "Arial Black" },
+                            { text: "Comic Sans MS", value: "Comic Sans MS" },
+                            { text: "Courier New", value: "Courier New" },
+                            { text: "Helvetica", value: "Helvetica" },
+                            { text: "Symbol", value: "Symbol" },
+                            { text: "Times New Roman", value: "Times New Roman" },
+                            { text: "Roboto Slab", value: "Roboto Slab" },
+                            { text: "Noto Sans", value: "Noto Sans" },
+                            { text: "Anton", value: "Anton" },
+                            { text: "Open Sans Condensed", value: "Open Sans Condensed" },
+                            { text: "Playfair Display", value: "Playfair Display" },
+                            { text: "Lora", value: "Lora" },
+                            { text: "Kodchasan", value: "Kodchasan" },
+                            { text: "Muli", value: "Muli" },
+                            { text: "Nunito", value: "Nunito" },
+                            { text: "Arimo", value: "Arimo" },
+                            { text: "Fira Sans", value: "Fira Sans" },
+                            { text: "Noto Serif", value: "Noto Serif" },
+                            //{ text: "Quicksand", value: "Quicksand" },
+                            { text: "Inconsolata", value: "Inconsolata" },
+                            { text: "Nunito Sans", value: "Nunito Sans" },
+                            { text: "Cabin", value: "Cabin" },
+                            { text: "Josefin Sans", value: "Josefin Sans" },
+                            { text: "Lobster", value: "Lobster" },
+                            { text: "Asap", value: "Asap" },
+                            { text: "Varela Round", value: "Varela Round" },
+                            { text: "Pacifico", value: "Pacifico" },
+                            { text: "Dancing Script", value: "Dancing Script" },
+                            { text: "Kanit", value: "Kanit" },
+                            { text: "Yanone Kaffeesatz", value: "Yanone Kaffeesatz" },
+                            { text: "Exo", value: "Exo" },
+                            { text: "EB Garamond", value: "EB Garamond" },
+                            { text: "Maven Pro", value: "Maven Pro" },
+                            { text: "Play", value: "Play" },
+                            { text: "Amatic SC", value: "Amatic SC" },
+                            { text: "Barlow", value: "Barlow" },
+                            { text: "Francois One", value: "Francois One" },
+                            { text: "Fira Sans Condensed", value: "Fira Sans Condensed" },
+                            { text: "Comfortaa", value: "Comfortaa" },
+                            { text: "Vollkorn", value: "Vollkorn" },
+                            { text: "Noticia Text", value: "Noticia Text" },
+                            { text: "Rokkitt", value: "Rokkitt" },
+                            { text: "Cuprum", value: "Cuprum" },
+                            { text: "Alegreya", value: "Alegreya" },
+                            { text: "Prompt", value: "Prompt" },
+                            { text: "Barlow Condensed", value: "Barlow Condensed" },
+                            { text: "Alegreya Sans", value: "Alegreya Sans" },
+                            { text: "Old Standard TT", value: "Old Standard TT" },
+                            { text: "Alfa Slab One", value: "Alfa Slab One" },
+                            { text: "Noto Sans SC", value: "Noto Sans SC" },
+                            { text: "Tinos", value: "Tinos" },
+                            { text: "Encode Sans Semi Expanded", value: "Encode Sans Semi Expanded" },
+                            { text: "Playfair Display SC", value: "Playfair Display SC" },
+                            { text: "Lalezar", value: "Lalezar" },
+                            { text: "Barlow Semi Condensed", value: "Barlow Semi Condensed" },
+                            { text: "Encode Sans Expanded", value: "Encode Sans Expanded" },
+                            { text: "Asap Condensed", value: "Asap Condensed" },
+                            { text: "M PLUS 1p", value: "M PLUS 1p" },
+                            { text: "Patrick Hand", value: "Patrick Hand" },
+                            { text: "Cabin Condensed", value: "Cabin Condensed" },
+                            { text: "IBM Plex Serif", value: "IBM Plex Serif" },
+                            { text: "Bangers", value: "Bangers" },
+                            { text: "Philosopher", value: "Philosopher" },
+                            { text: "Saira", value: "Saira" },
+                            { text: "Montserrat Alternates", value: "Montserrat Alternates" },
+                            { text: "Prata", value: "Prata" },
+                            { text: "Saira Extra Condensed", value: "Saira Extra Condensed" },
+                            { text: "Pridi", value: "Pridi" },
+                            { text: "Taviraj", value: "Taviraj" },
+                            { text: "Mitr", value: "Mitr" },
+                            { text: "Archivo", value: "Archivo" },
+                            { text: "Alegreya Sans SC", value: "Alegreya Sans SC" },
+                            { text: "Cousine", value: "Cousine" },
+                            { text: "Cormorant", value: "Cormorant" },
+                            { text: "Niramit", value: "Niramit" },
+                            { text: "Sawarabi Gothic", value: "Sawarabi Gothic" },
+                            { text: "Encode Sans Condensed", value: "Encode Sans Condensed" },
+                            { text: "Jura", value: "Jura" },
+                            { text: "IBM Plex Mono", value: "IBM Plex Mono" },
+                            { text: "Baloo", value: "Baloo" },
+                            { text: "Baloo 2", value: "Baloo 2" },
+                            { text: "Bevan", value: "Bevan" },
+                            { text: "Itim", value: "Itim" },
+                            { text: "Saira Semi Condensed", value: "Saira Semi Condensed" },
+                            { text: "Space Mono", value: "Space Mono" },
+                            { text: "Spectral", value: "Spectral" },
+                            { text: "Baloo Paaji", value: "Baloo Paaji" },
+                            { text: "Baloo Paaji 2", value: "Baloo Paaji 2" },
+                            { text: "VT323", value: "VT323" },
+                            { text: "Encode Sans", value: "Encode Sans" },
+                            { text: "Saira Condensed", value: "Saira Condensed" },
+                            { text: "Yeseva One", value: "Yeseva One" },
+                            { text: "Markazi Text", value: "Markazi Text" },
+                            { text: "M PLUS Rounded 1c", value: "M PLUS Rounded 1c" },
+                            { text: "Bungee", value: "Bungee" },
+                            { text: "Arsenal", value: "Arsenal" },
+                            { text: "Alegreya SC", value: "Alegreya SC" },
+                            { text: "Trirong", value: "Trirong" },
+                            { text: "Bungee Inline", value: "Bungee Inline" },
+                            { text: "Arima Madurai", value: "Arima Madurai" },
+                            { text: "Sarabun", value: "Sarabun" },
+                            { text: "Pattaya", value: "Pattaya" },
+                            { text: "Noto Serif SC", value: "Noto Serif SC" },
+                            { text: "Athiti", value: "Athiti" },
+                            { text: "Charm", value: "Charm" },
+                            { text: "Noto Serif TC", value: "Noto Serif TC" },
+                            { text: "Major Mono Display", value: "Major Mono Display" },
+                            { text: "Baloo Bhaijaan", value: "Baloo Bhaijaan" },
+                            { text: "KoHo", value: "KoHo" },
+                            { text: "Baloo Bhaina", value: "Baloo Bhaina" },
+                            { text: "Maitree", value: "Maitree" },
+                            { text: "Judson", value: "Judson" },
+                            { text: "Sriracha", value: "Sriracha" },
+                            { text: "Andika", value: "Andika" },
+                            { text: "Faustina", value: "Faustina" },
+                            { text: "Podkova", value: "Podkova" },
+                            { text: "Bai Jamjuree", value: "Bai Jamjuree" },
+                            { text: "Cormorant Infant", value: "Cormorant Infant" },
+                            { text: "Cormorant SC", value: "Cormorant SC" },
+                            { text: "K2D", value: "K2D" },
+                            { text: "Chonburi", value: "Chonburi" },
+                            { text: "David Libre", value: "David Libre" },
+                            { text: "IBM Plex Sans Condensed", value: "IBM Plex Sans Condensed" },
+                            { text: "Patrick Hand SC", value: "Patrick Hand SC" },
+                            { text: "Bungee Hairline", value: "Bungee Hairline" },
+                            { text: "Vollkorn SC", value: "Vollkorn SC" },
+                            { text: "Sedgwick Ave Display", value: "Sedgwick Ave Display" },
+                            { text: "Bungee Outline", value: "Bungee Outline" },
+                            { text: "Farsan", value: "Farsan" },
+                            { text: "Cormorant Unicase", value: "Cormorant Unicase" },
+                            { text: "Baloo Tamma", value: "Baloo Tamma" },
+                            { text: "Baloo Thambi", value: "Baloo Thambi" },
+                            { text: "Encode Sans Semi Condensed", value: "Encode Sans Semi Condensed" },
+                            { text: "Cormorant Upright", value: "Cormorant Upright" },
+                            { text: "Bungee Shade", value: "Bungee Shade" },
+                            //{ text: "Mali", value: "Mali" },
+                            { text: "Krub", value: "Krub" }
+                        ]
+                    },
+
+                    //"fontSize",
+                    /*{
+                        name: "fontSize",
+                        items: [
+                            { text: "8px", value: "8px" },  //8x1
+                            { text: "10px", value: "10px" },
+                            { text: "12px", value: "12px" },
+                            { text: "14px", value: "14px" },
+                            { text: "16px", value: "16px" },//8x2
+                            { text: "18px", value: "18px" },
+                            { text: "24px", value: "24px" },//8x3
+                            { text: "32px", value: "32px" },//8x4
+                            { text: "40px", value: "40px" },//8x5
+                            { text: "48px", value: "48px" },//8x6
+                            { text: "56px", value: "56px" },//8x7
+                            { text: "64px", value: "64px" },//8x8
+                            { text: "72px", value: "72px" } //8x9
+                        ]
+                    },*/
+
+                    {
+                        name: "fontSize",
+                        items: (function () {
+                            var res = [];
+                            for (var i = 8; i <= 108; i++) {
+                                res.push({ text: `${i}px`, value: `${i}px` });
+                            }
+                            return res;
+                        })()
+                    },
+
+                    "foreColor",
+                    "backColor",
 
                     //
                     //"insertUnorderedList",
@@ -525,202 +735,6 @@
                     //         { text: "Heading 5", value: "h5" },
                     //     ]
                     // },
-
-                    //"fontName",
-                    {
-                        name: "fontName",
-                        items: [
-                            //
-                            { text: "Segoe UI", value: "Segoe UI" },
-                            { text: "Segoe UI Light", value: "Segoe UI Light" },
-
-                            //
-                            //{ text: "Myriad Pro", value: "Myriad Pro" },
-                            { text: "Mali", value: "Mali" },
-                            { text: "Quicksand", value: "Quicksand" },
-                            { text: "MS-Mincho", value: "MS-Mincho" },
-                            { text: "Pangolin", value: "Pangolin" },
-
-                            //
-                            { text: "MS PGothic", value: "MS PGothic" },
-                            { text: "UD Digi Kyokasho NK-B", value: "UD Digi Kyokasho NK-B" },
-
-                            //
-                            { text: "Tahoma", value: "Tahoma" },
-                            { text: "Arial", value: "Arial" },
-                            { text: "Arial Black", value: "Arial Black" },
-                            { text: "Comic Sans MS", value: "Comic Sans MS" },
-                            { text: "Courier New", value: "Courier New" },
-                            { text: "Helvetica", value: "Helvetica" },
-                            { text: "Symbol", value: "Symbol" },
-                            { text: "Times New Roman", value: "Times New Roman" },
-                            { text: "Roboto Slab", value: "Roboto Slab" },
-                            { text: "Noto Sans", value: "Noto Sans" },
-                            { text: "Anton", value: "Anton" },
-                            { text: "Open Sans Condensed", value: "Open Sans Condensed" },
-                            { text: "Playfair Display", value: "Playfair Display" },
-                            { text: "Lora", value: "Lora" },
-                            { text: "Kodchasan", value: "Kodchasan" },
-                            { text: "Muli", value: "Muli" },
-                            { text: "Nunito", value: "Nunito" },
-                            { text: "Arimo", value: "Arimo" },
-                            { text: "Fira Sans", value: "Fira Sans" },
-                            { text: "Noto Serif", value: "Noto Serif" },
-                            //{ text: "Quicksand", value: "Quicksand" },
-                            { text: "Inconsolata", value: "Inconsolata" },
-                            { text: "Nunito Sans", value: "Nunito Sans" },
-                            { text: "Cabin", value: "Cabin" },
-                            { text: "Josefin Sans", value: "Josefin Sans" },
-                            { text: "Lobster", value: "Lobster" },
-                            { text: "Asap", value: "Asap" },
-                            { text: "Varela Round", value: "Varela Round" },
-                            { text: "Pacifico", value: "Pacifico" },
-                            { text: "Dancing Script", value: "Dancing Script" },
-                            { text: "Kanit", value: "Kanit" },
-                            { text: "Yanone Kaffeesatz", value: "Yanone Kaffeesatz" },
-                            { text: "Exo", value: "Exo" },
-                            { text: "EB Garamond", value: "EB Garamond" },
-                            { text: "Maven Pro", value: "Maven Pro" },
-                            { text: "Play", value: "Play" },
-                            { text: "Amatic SC", value: "Amatic SC" },
-                            { text: "Barlow", value: "Barlow" },
-                            { text: "Francois One", value: "Francois One" },
-                            { text: "Fira Sans Condensed", value: "Fira Sans Condensed" },
-                            { text: "Comfortaa", value: "Comfortaa" },
-                            { text: "Vollkorn", value: "Vollkorn" },
-                            { text: "Noticia Text", value: "Noticia Text" },
-                            { text: "Rokkitt", value: "Rokkitt" },
-                            { text: "Cuprum", value: "Cuprum" },
-                            { text: "Alegreya", value: "Alegreya" },
-                            { text: "Prompt", value: "Prompt" },
-                            { text: "Barlow Condensed", value: "Barlow Condensed" },
-                            { text: "Alegreya Sans", value: "Alegreya Sans" },
-                            { text: "Old Standard TT", value: "Old Standard TT" },
-                            { text: "Alfa Slab One", value: "Alfa Slab One" },
-                            { text: "Noto Sans SC", value: "Noto Sans SC" },
-                            { text: "Tinos", value: "Tinos" },
-                            { text: "Encode Sans Semi Expanded", value: "Encode Sans Semi Expanded" },
-                            { text: "Playfair Display SC", value: "Playfair Display SC" },
-                            { text: "Lalezar", value: "Lalezar" },
-                            { text: "Barlow Semi Condensed", value: "Barlow Semi Condensed" },
-                            { text: "Encode Sans Expanded", value: "Encode Sans Expanded" },
-                            { text: "Asap Condensed", value: "Asap Condensed" },
-                            { text: "M PLUS 1p", value: "M PLUS 1p" },
-                            { text: "Patrick Hand", value: "Patrick Hand" },
-                            { text: "Cabin Condensed", value: "Cabin Condensed" },
-                            { text: "IBM Plex Serif", value: "IBM Plex Serif" },
-                            { text: "Bangers", value: "Bangers" },
-                            { text: "Philosopher", value: "Philosopher" },
-                            { text: "Saira", value: "Saira" },
-                            { text: "Montserrat Alternates", value: "Montserrat Alternates" },
-                            { text: "Prata", value: "Prata" },
-                            { text: "Saira Extra Condensed", value: "Saira Extra Condensed" },
-                            { text: "Pridi", value: "Pridi" },
-                            { text: "Taviraj", value: "Taviraj" },
-                            { text: "Mitr", value: "Mitr" },
-                            { text: "Archivo", value: "Archivo" },
-                            { text: "Alegreya Sans SC", value: "Alegreya Sans SC" },
-                            { text: "Cousine", value: "Cousine" },
-                            { text: "Cormorant", value: "Cormorant" },
-                            { text: "Niramit", value: "Niramit" },
-                            { text: "Sawarabi Gothic", value: "Sawarabi Gothic" },
-                            { text: "Encode Sans Condensed", value: "Encode Sans Condensed" },
-                            { text: "Jura", value: "Jura" },
-                            { text: "IBM Plex Mono", value: "IBM Plex Mono" },
-                            { text: "Baloo", value: "Baloo" },
-                            { text: "Baloo 2", value: "Baloo 2" },
-                            { text: "Bevan", value: "Bevan" },
-                            { text: "Itim", value: "Itim" },
-                            { text: "Saira Semi Condensed", value: "Saira Semi Condensed" },
-                            { text: "Space Mono", value: "Space Mono" },
-                            { text: "Spectral", value: "Spectral" },
-                            { text: "Baloo Paaji", value: "Baloo Paaji" },
-                            { text: "Baloo Paaji 2", value: "Baloo Paaji 2" },
-                            { text: "VT323", value: "VT323" },
-                            { text: "Encode Sans", value: "Encode Sans" },
-                            { text: "Saira Condensed", value: "Saira Condensed" },
-                            { text: "Yeseva One", value: "Yeseva One" },
-                            { text: "Markazi Text", value: "Markazi Text" },
-                            { text: "M PLUS Rounded 1c", value: "M PLUS Rounded 1c" },
-                            { text: "Bungee", value: "Bungee" },
-                            { text: "Arsenal", value: "Arsenal" },
-                            { text: "Alegreya SC", value: "Alegreya SC" },
-                            { text: "Trirong", value: "Trirong" },
-                            { text: "Bungee Inline", value: "Bungee Inline" },
-                            { text: "Arima Madurai", value: "Arima Madurai" },
-                            { text: "Sarabun", value: "Sarabun" },
-                            { text: "Pattaya", value: "Pattaya" },
-                            { text: "Noto Serif SC", value: "Noto Serif SC" },
-                            { text: "Athiti", value: "Athiti" },
-                            { text: "Charm", value: "Charm" },
-                            { text: "Noto Serif TC", value: "Noto Serif TC" },
-                            { text: "Major Mono Display", value: "Major Mono Display" },
-                            { text: "Baloo Bhaijaan", value: "Baloo Bhaijaan" },
-                            { text: "KoHo", value: "KoHo" },
-                            { text: "Baloo Bhaina", value: "Baloo Bhaina" },
-                            { text: "Maitree", value: "Maitree" },
-                            { text: "Judson", value: "Judson" },
-                            { text: "Sriracha", value: "Sriracha" },
-                            { text: "Andika", value: "Andika" },
-                            { text: "Faustina", value: "Faustina" },
-                            { text: "Podkova", value: "Podkova" },
-                            { text: "Bai Jamjuree", value: "Bai Jamjuree" },
-                            { text: "Cormorant Infant", value: "Cormorant Infant" },
-                            { text: "Cormorant SC", value: "Cormorant SC" },
-                            { text: "K2D", value: "K2D" },
-                            { text: "Chonburi", value: "Chonburi" },
-                            { text: "David Libre", value: "David Libre" },
-                            { text: "IBM Plex Sans Condensed", value: "IBM Plex Sans Condensed" },
-                            { text: "Patrick Hand SC", value: "Patrick Hand SC" },
-                            { text: "Bungee Hairline", value: "Bungee Hairline" },
-                            { text: "Vollkorn SC", value: "Vollkorn SC" },
-                            { text: "Sedgwick Ave Display", value: "Sedgwick Ave Display" },
-                            { text: "Bungee Outline", value: "Bungee Outline" },
-                            { text: "Farsan", value: "Farsan" },
-                            { text: "Cormorant Unicase", value: "Cormorant Unicase" },
-                            { text: "Baloo Tamma", value: "Baloo Tamma" },
-                            { text: "Baloo Thambi", value: "Baloo Thambi" },
-                            { text: "Encode Sans Semi Condensed", value: "Encode Sans Semi Condensed" },
-                            { text: "Cormorant Upright", value: "Cormorant Upright" },
-                            { text: "Bungee Shade", value: "Bungee Shade" },
-                            //{ text: "Mali", value: "Mali" },
-                            { text: "Krub", value: "Krub" }
-                        ]
-                    },
-
-                    //"fontSize",
-                    /*{
-                        name: "fontSize",
-                        items: [
-                            { text: "8px", value: "8px" },  //8x1
-                            { text: "10px", value: "10px" },
-                            { text: "12px", value: "12px" },
-                            { text: "14px", value: "14px" },
-                            { text: "16px", value: "16px" },//8x2
-                            { text: "18px", value: "18px" },
-                            { text: "24px", value: "24px" },//8x3
-                            { text: "32px", value: "32px" },//8x4
-                            { text: "40px", value: "40px" },//8x5
-                            { text: "48px", value: "48px" },//8x6
-                            { text: "56px", value: "56px" },//8x7
-                            { text: "64px", value: "64px" },//8x8
-                            { text: "72px", value: "72px" } //8x9
-                        ]
-                    },*/
-
-                    {
-                        name: "fontSize",
-                        items: (function () {
-                            var res = [];
-                            for (var i = 8; i <= 108; i++) {
-                                res.push({ text: `${i}px`, value: `${i}px` });
-                            }
-                            return res;
-                        })()
-                    },
-
-                    "foreColor",
-                    "backColor"
                 ],
                 /*imageBrowser: {
                     messages: {
@@ -754,18 +768,20 @@
             style.textContent = 'html,body{background-color:#EEE;}' + $('style#text-to-speak')[0].innerHTML.replace(/\s+/g, ' ');
             $('#editor').data('kendoEditor').document.head.appendChild(style);
 
-            //Google fonts
-            let linkGoogleFont = document.createElement('link');
-            linkGoogleFont.href = 'css/googlefont.css';
-            linkGoogleFont.rel = "stylesheet";
-            $('#editor').data('kendoEditor').document.head.appendChild(linkGoogleFont);
+            if (!fonts.length) {
+                //Google fonts
+                let linkGoogleFont = document.createElement('link');
+                linkGoogleFont.href = 'css/googlefont.css';
+                linkGoogleFont.rel = "stylesheet";
+                $('#editor').data('kendoEditor').document.head.appendChild(linkGoogleFont);
 
-            //Site Font
-            let linkSiteFont = document.createElement('link');
-            linkSiteFont.href = 'dist/css/font.min.css';
-            linkSiteFont.rel = "stylesheet";
-            $('#editor').data('kendoEditor').document.head.appendChild(linkSiteFont);
-
+                //Site Font
+                let linkSiteFont = document.createElement('link');
+                linkSiteFont.href = 'dist/css/font.min.css';
+                linkSiteFont.rel = "stylesheet";
+                $('#editor').data('kendoEditor').document.head.appendChild(linkSiteFont);
+            }
+            
             //Site
             let linkStyleSheet = document.createElement('link');
             linkStyleSheet.href = 'dist/css/site.min.css';
