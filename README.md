@@ -22,26 +22,33 @@ git pull
 ```
 ###### đổi tên và copy font vào đúng cấu trúc thư mục (Mac-Terminal)
 ```command
-#! /bin/bash
-cd /Users/ntkien/Downloads/FontSample
-for file in "$arg"**/*.ttf; do
-    family=$(fc-scan --format "%{family}" $file);
-    family=$(echo "$family" | sed -Ee 's/,.+$//g');
-    fontname=$(echo "$family" | sed -Ee 's/[^a-zA-Z-]//g');
-            
-    style=$(fc-scan --format "%{style}" $file);
-    style=$(echo "$style" | sed -Ee 's/,.+$//g');
-    style=$(echo "$style" | sed -Ee 's/light/Light/g');
-    style=$(echo "$style" | sed -Ee 's/bold/Bold/g');
-    fontstyle=$(echo "$style" | sed -Ee 's/[^a-zA-Z]//g')
+rootfolder="/Users/ntkien/Downloads/FontSample";
+clonefolder="/Users/ntkien/Downloads/Fonts";
 
-    clonefolder="/Users/ntkien/PROJECT/Fonts";
-    newfolder="$clonefolder/$fontname";
-    newfilepath="$newfolder/$fontname-$fontstyle.ttf";
-    
-    test -d "$clonefolder" || mkdir "$clonefolder";
-    test -d "$newfolder" || mkdir "$newfolder";
-    test -f "$newfilepath" && echo "Exits F: $newfilepath" || mv "$file" "$newfilepath";
+test -d "$clonefolder" || mkdir "$clonefolder";
+
+for file in "$rootfolder/"**/*.ttf; do
+   
+    pattern=$(fc-scan --format "x" $file);
+    if ((${#pattern} != 1)); then
+        echo "Num pattern fail! [${#pattern}]";
+    else
+        family=$(fc-scan --format "%{family}" $file);
+        family=$(echo "$family" | sed -Ee 's/,.+$//g');
+        fontname=$(echo "$family" | sed -Ee 's/[^a-zA-Z-]//g');
+                
+        style=$(fc-scan --format "%{style}" $file);
+        style=$(echo "$style" | sed -Ee 's/,.+$//g');
+        style=$(echo "$style" | sed -Ee 's/light/Light/g');
+        style=$(echo "$style" | sed -Ee 's/bold/Bold/g');
+        fontstyle=$(echo "$style" | sed -Ee 's/[^a-zA-Z]//g')
+
+        newfolder="$clonefolder/$fontname";
+        newfilepath="$newfolder/$fontname-$fontstyle.ttf";
+        
+        test -d "$newfolder" || mkdir "$newfolder";
+        test -f "$newfilepath" && echo "Exits F: $newfilepath" || cp "$file" "$newfilepath";
+    fi;
 done
 ```
 ###### đổi tên tệp theo cấu trúc (Win-PowerShell)
