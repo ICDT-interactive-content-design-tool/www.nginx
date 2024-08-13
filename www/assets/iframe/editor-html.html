@@ -222,10 +222,10 @@
         }
 
         function valueEditor(text) {
-            if (text) {
-                EditorContent = text;
+            if (text != undefined) {
+                EditorContent = text || '<p style="font-family:Roboto;font-size:24px;"></p>';
                 if ($('#editor').data('kendoEditor')) {
-                    $('#editor').data('kendoEditor').value(text);
+                    $('#editor').data('kendoEditor').value(EditorContent);
                 }
             }
             else {
@@ -234,18 +234,19 @@
         }
 
         $(window).on('load', async function () {
-            var fonts = ('queryLocalFonts' in window) ? await window.queryLocalFonts() : [];
+            var fonts = [];
 
-            fonts = fonts.reduce((previousValue, currentValue, currentIndex, array) => {
-                let temp = previousValue.find(f => f.family == currentValue.family);
-                if (temp) {
-                    //temp.child.push(Object.assign(currentValue, { text: currentValue.family, value: currentValue.family }));
-                }
-                else {
-                    previousValue.push(Object.assign(currentValue, { text: currentValue.family, value: currentValue.family, child: [] }));
-                }
-                return previousValue;
-            }, []);
+            /*fonts = (('queryLocalFonts' in window) ? await window.queryLocalFonts() : [])
+                .reduce((previousValue, currentValue, currentIndex, array) => {
+                    let temp = previousValue.find(f => f.family == currentValue.family);
+                    if (temp) {
+                        //temp.child.push(Object.assign(currentValue, { text: currentValue.family, value: currentValue.family }));
+                    }
+                    else {
+                        previousValue.push(Object.assign(currentValue, { text: currentValue.family, value: currentValue.family, child: [] }));
+                    }
+                    return previousValue;
+                }, []);*/
 
             //
             var editor = $('#editor').kendoEditor({
@@ -781,7 +782,7 @@
                 linkSiteFont.rel = "stylesheet";
                 $('#editor').data('kendoEditor').document.head.appendChild(linkSiteFont);
             }
-            
+
             //Site
             let linkStyleSheet = document.createElement('link');
             linkStyleSheet.href = 'dist/css/site.min.css';
