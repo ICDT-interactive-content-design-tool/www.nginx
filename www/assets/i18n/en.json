@@ -1,4 +1,10 @@
 {
+	"AddTextBook": "Add textbook",
+	"TextBookName": "Textbook name",
+	"Catalogue": "Catalogue",
+	"Publisher": "Publisher",
+	"ViewTextBook": "View Textbook",
+	"TrainningAI": "Trainning AI",
 	"PageDelete_title": "Delete page",
 	"PageImport_title": "Import from SVG file",
 	"PageAdd_title": "Add",

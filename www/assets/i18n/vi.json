@@ -1,4 +1,10 @@
 {
+	"AddTextBook": "Thêm sách",
+	"TextBookName": "Tên sách",
+	"Catalogue": "Danh mục",
+	"Publisher": "Nhà xuất bản",
+	"ViewTextBook": "Xem sách",
+	"TrainningAI": "Huấn luyện AI",
 	"PageDelete_title": "Xóa trang",
 	"PageImport_title": "Nhập dữ liệu từ tập tin SVG",
 	"PageAdd_title": "Thêm trang mới",
