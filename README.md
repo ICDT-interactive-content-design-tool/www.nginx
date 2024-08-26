@@ -56,3 +56,17 @@ done
 Ls | Rename-Item -NewName { >_.Name -replace "_","" }
 Get-ChildItem -Recurse | Rename-Item -NewName { >_.Name -replace "_","" }
 ```
+
+###### di chuyển file vào thư mục theo cấu trúc tên file (Win-PowerShell)
+```PowerShell
+$FolderName = Read-Host "Nhap ten thu muc (ten thu muc can match theo ten danh sach file)"
+$targetFrom="C:\Users\ntkien.LVDOMAIN\Downloads"
+$targetTo="$targetFrom\$FolderName"
+if (Test-Path -Path $targetTo) {
+    "Folder exit"
+    Pause
+    Exit
+}
+New-Item -Path $targetTo -ItemType Directory
+Get-ChildItem -Path "$targetFrom\$FolderName*.svg" -Recurse | Move-Item -Destination $targetTo
+```

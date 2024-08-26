@@ -445,6 +445,7 @@
 	"ShapeRectangle": "Rectangle",
 	"ShapeSquare": "Square",
 	"ShapeStar": "Star shape",
+	"ShapeStarFivePointed": "Five-pointed star shape",
 	"ShapeStarFourPointed": "Four-pointed star shape",
 	"ShapeStarSixPointed": "Six-pointed star shape",
 	"ShapeTriangle": "Triangle",
