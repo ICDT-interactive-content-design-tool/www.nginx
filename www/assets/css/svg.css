@@ -3,6 +3,15 @@ svg foreignObject {
     overflow: visible;
 }
 
+svg.viewer .hide-on-viewer {
+    display: none;
+}
+
+svg.viewer .interactive-click,
+svg.viewer .variable-click {
+    cursor: pointer;
+}
+
 .k-webkit {
 
     svg foreignObject {
@@ -134,10 +143,6 @@ svg foreignObject {
         line-height: 28px;
         vertical-align: middle;
         text-align: center;
-    }
-
-    svg.viewer .hide-on-viewer {
-        display: none;
     }
 
     svg.viewer foreignObject.interactive-click::after,
