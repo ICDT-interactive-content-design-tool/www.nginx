@@ -10,6 +10,9 @@ cp /var/www.tabca/nginx/conf/nginx.conf /etc/nginx/nginx.conf
 cp /var/www.tabca/nginx/conf.d/tabca.vn.conf /etc/nginx/conf.d/
 cp /var/www.tabca/nginx/conf.d/www.tabca.vn.conf /etc/nginx/conf.d/
 
+cp /home/ubuntu/www.tabca.vn.conf /etc/nginx/conf.d/
+cp /home/ubuntu/test.tabca.vn.conf /etc/nginx/conf.d/
+
 ```
 ###### create ssl R3 on ubuntu nginx
 ```command

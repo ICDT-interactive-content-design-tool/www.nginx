@@ -1,0 +1,46 @@
+server {
+
+    server_name www.tabca.vn;
+
+    root /var/www.tabca/www;
+
+    location / {
+ if ( $uri = '/index.html' ) {
+  add_header Cache-Control "no-cache, no-store, must-revalidate";
+  add_header Pragma "no-cache";
+  expires off;
+ }
+        try_files $uri $uri/ /index.html;
+    }
+
+location ~* ^.+\.(html|css|js)$ {
+access_log off;
+add_header Cache-Control no-cache;
+expires 60s;
+}
+
+    location /fonts  {
+        add_header "Access-Control-Allow-Origin" *;
+        alias /var/www.tabca/fonts;
+        try_files $uri $uri/ =404;
+    }
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/www.tabca.vn/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/www.tabca.vn/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}server {
+    if ($host = www.tabca.vn) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+
+    server_name www.tabca.vn;
+    return 404; # managed by Certbot
+
+
+}
