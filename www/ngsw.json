@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1727168780868,
+  "timestamp": 1727170255577,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -112,7 +112,7 @@
         "/9977.b736c95ef13ae7c4.js",
         "/common.aae09f55d7e74d5f.js",
         "/index.html",
-        "/main.22e5fc932fe1277b.js",
+        "/main.992f960d916680c8.js",
         "/manifest.webmanifest",
         "/polyfills-core-js.c76198334f717402.js",
         "/polyfills-dom.bf542500b6fca113.js",
@@ -133,6 +133,9 @@
       "urls": [
         "/ai-bg.80d16e778af99af0.svg",
         "/assets/css/drag.css",
+        "/assets/css/font-Roboto.css",
+        "/assets/css/font-RobotoCondensed.css",
+        "/assets/css/font-RobotoMono.css",
         "/assets/css/general.css",
         "/assets/css/svg.css",
         "/assets/css/viewer.css",
@@ -2453,6 +2456,9 @@
     "/9977.b736c95ef13ae7c4.js": "ae4ae2379a7664b9b7c068cb00638ac4a06c9e65",
     "/ai-bg.80d16e778af99af0.svg": "2f48cf7afcf8c1ce68f3a1ae3649008032a0d86e",
     "/assets/css/drag.css": "93d87e12a4a9301908b3c09c5b5b5b5c53979380",
+    "/assets/css/font-Roboto.css": "ba2f036c495cff70543181d8e5e32c5c038b709f",
+    "/assets/css/font-RobotoCondensed.css": "d141c9e4659494fe0bc46bec5da95941e2aed80a",
+    "/assets/css/font-RobotoMono.css": "36b62c637400420bed942c1cc5eb948118ad51de",
     "/assets/css/general.css": "a58bf37dfa9c69073f9234d01b0f4c1b6f16ab32",
     "/assets/css/svg.css": "e00ea836314e3f0e2fb78e2e51f474e319942868",
     "/assets/css/viewer.css": "745245fb3c55fd1a1f87dd49e02fde41df38b372",
@@ -4662,8 +4668,8 @@
     "/common.aae09f55d7e74d5f.js": "5f8aa7f994e76aec636a01fa69fd4fe0e0991e55",
     "/gom.7a6c7a3c34d92ddd.png": "b54029a43033052990ca27130433137b688fc734",
     "/highlight1.e930270998c88287.png": "f802d86ea65ab69d959b3e6a82e3a5b0cab533ad",
-    "/index.html": "4099fadc35b8fc8acd2db266fcdcd929d2aa7fd2",
-    "/main.22e5fc932fe1277b.js": "804afb9df8669a4efae2f5662cdbfb88ab9ee67a",
+    "/index.html": "725681410993f7c0a6f5c0178cb08d963dbe0739",
+    "/main.992f960d916680c8.js": "6cd97f1ee7a54955beea9c7338a35020b7a2020b",
     "/manifest.webmanifest": "2b44460d6330b7a35f4a75952dc652aa0368d68d",
     "/point.594d12c3a92d9b68.png": "7daadd11bf1c3d3b55a883aac7cab354cee74241",
     "/polyfills-core-js.c76198334f717402.js": "d6e270a2944b6a95a9b97dafd25599ba825e8d7f",
