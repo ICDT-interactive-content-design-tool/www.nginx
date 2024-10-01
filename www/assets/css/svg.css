@@ -12,6 +12,11 @@ svg.viewer .variable-click {
     cursor: pointer;
 }
 
+svg.editor foreignObject [contenteditable="true"] {
+    outline: none;
+    box-shadow: 0 0 0 1px rgb(13, 153, 255);
+}
+
 .k-webkit {
 
     svg foreignObject {
@@ -29,6 +34,7 @@ svg.viewer .variable-click {
         z-index: 1000;
     }
 
+    svg.editor foreignObject[editable="true"]::after,
     svg.editor g[id^="icdt-"] foreignObject::after {
         display: none;
     }
@@ -193,6 +199,10 @@ svg foreignObject h6 {
 
 svg foreignObject p {
     margin: 0 0 10px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 svg .hide {
