@@ -1,0 +1,20 @@
+# robots.txt cho website Angular chuẩn SEO
+
+# Áp dụng cho tất cả các công cụ tìm kiếm
+User-agent: *
+
+# Cho phép truy cập toàn bộ trang web
+Allow: /
+
+# Chặn các thư mục hoặc đường dẫn không cần thiết
+Disallow: /admin/
+Disallow: /login/
+Disallow: /signup/
+Disallow: /api/
+
+# Cho phép truy cập các thư mục chứa tài nguyên cần thiết cho SEO
+Allow: /assets/
+Allow: /static/
+
+# Đường dẫn đến sitemap
+#Sitemap: https://www.tabca.com/sitemap.xml
