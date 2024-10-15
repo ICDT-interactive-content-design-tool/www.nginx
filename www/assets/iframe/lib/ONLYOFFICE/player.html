@@ -3,14 +3,28 @@
 
 <head>
     <title>OnlyOffice Viewer</title>
+    <style>
+        body {
+            position: fixed;
+            display: block;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+    </style>
     <script src="https://office.surelrn.vn/web-apps/apps/api/documents/api.js"></script>
 </head>
 
 <body>
-    <div id="onlyoffice-viewer" style="width: 100%; height: 100vh;"></div>
+    <div id="onlyoffice-viewer"></div>
     <script>
+        function getParams(key) {
+            return decodeURIComponent((new RegExp(`[?|&]${key}=([^&;]+?)(&|#|;|$)`).exec(location.search) || ["", ""])[1].replace(/\+/g, '%20')) || undefined;
+        }
         window.addEventListener('load', function () {
-            var url = decodeURIComponent((new RegExp('[?|&]url=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || ["", ""])[1].replace(/\+/g, '%20')) || null;
+            var url = getParams('url');
             if (!url) {
                 return
             }
@@ -26,7 +40,7 @@
                 "document": {
                     "fileType": fileType,
                     "key": fileName,
-                    "title": fileName,
+                    "title": 'TABCA',
                     "url": url,
                     "permissions": {
                         "edit": false,
