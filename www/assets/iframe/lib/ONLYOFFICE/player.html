@@ -13,6 +13,13 @@
             padding: 0;
             border: 0;
         }
+
+        /* Hide the brand logo */
+        .logo,
+        .brand-logo,
+        .onlyoffice-logo {
+            display: none !important;
+        }
     </style>
     <script src="https://office.surelrn.vn/web-apps/apps/api/documents/api.js"></script>
 </head>
@@ -37,32 +44,57 @@
 
             var config = {
                 "type": "embedded",
+
+                // **Document Configuration**
                 "document": {
-                    "fileType": fileType,
-                    "key": fileName,
                     "title": 'TABCA',
                     "url": url,
+                    "fileType": fileType,
+                    "key": fileName,
                     "permissions": {
                         "edit": false,
                         "download": false,
-                        "print": false
+                        "print": false,
+                        "comment": false,
+                        "fillForms": false
                     }
                 },
                 //"documentType": "word",
                 "editorConfig": {
-                    "mode": "embedded",
+                    "mode": "view", // Modes: 'edit', 'view', 'embedded'
                     "lang": "vi",
                     "region": "VN",
                     "customization": {
                         "anonymous": {
                             "request": false,
                         },
-                        "about": false,
-                        "chat": false,
-                        "comments": false,
+                        "forcesave": false,
+                        "compactToolbar": false,
+                        "toolbarNoTabs": false,
+                        "goback": false,
+                        "commentDisplay": "right", // Options: 'right', 'inline'
+                        "reviewDisplay": "new", // Options: 'existing', 'new'
+                        "compactHeaderToolbar": false,
+                        "hideRightMenu": false,
+                        "mobileResponsive": true,
+                        "lightTheme": true,
+                        "showReviewChanges": false,
+                        "showComments": false,
+                        "showClose": false,
+                        "showPrint": false,
+                        "showDownload": false,
+                        "showSave": false,
+                        "showHelp": false,
+                        "showChat": false,
+                        "showFullScreen": true,
+                        "showRulers": false,
+                        "showPageView": true,
+                        "showThumbnails": true,
+                        "showDocumentProperties": false,
+                        "showNavigation": true
                     },
                     "embedded": {
-                        //"fullscreenUrl": url,
+                        "fullscreenUrl": `https://www.tabca.vn/assets/iframe/lib/ONLYOFFICE/player.html?url=${url}`,
                         "toolbarDocked": "top"
                     },
                 }
