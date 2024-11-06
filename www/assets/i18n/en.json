@@ -1,4 +1,7 @@
 {
+	"EnterDiscountCode": "Enter discount code",
+	"SignInToPay": "Login to pay",
+	"GetOffer": "Get offer",
 	"Use": "Use",
 	"Public": "Public",
 	"Private": "Private",
@@ -472,7 +475,7 @@
 	"SharedMembership": "Shared membership",
 	"Show": "Show",
 	"ShowObject": "Show object",
-	"SignIn": "Log in",
+	"SignIn": "Login",
 	"SignIn_ReturnCode_2": "The email or password you entered doesn't match our records. Please double-check and try again.",
 	"SignOut": "Sign out",
 	"SignUp": "Sign up",

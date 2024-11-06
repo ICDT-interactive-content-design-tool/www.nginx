@@ -1,4 +1,7 @@
 {
+	"EnterDiscountCode": "Nhập mã khuyến mãi",
+	"SignInToPay": "Đăng nhập để thanh toán",
+	"GetOffer": "Nhận ưu đãi",
 	"Use": "Sử dụng",
 	"Public": "Công khai",
 	"Private": "Cá nhân",
@@ -375,7 +378,7 @@
 	"OrderSummary": "Tóm tắt đơn hàng",
 	"OriginalImage": "Ảnh gốc",
 	"OssType": "Loại liên kết",
-	"Package": "Gói sản phẩm",
+	"Package": "Gói",
 	"Pairing": "Ghép đôi",
 	"Password": "Mật khẩu",
 	"PasswordRetrieval": "Lấy lại mật khẩu",
