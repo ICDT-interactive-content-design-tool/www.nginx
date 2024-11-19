@@ -691,10 +691,8 @@ SOFTWARE.
 
 
 icdt-core
-ISC
 
 icdt-decrypt
-ISC
 
 ionic-loader
 
